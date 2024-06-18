@@ -1,0 +1,52 @@
+void merge(int a[], int low, int mid, int high)
+{
+ int b[10000],i,j,k,m;
+ k=low;
+ i=low;
+ j=mid+1;
+ while((i<=mid)&&(j<=high))
+ {
+ 	if(a[i]<a[j])
+ 	{
+ 		b[k]=a[i];
+ 		i++;
+ 	}
+ 	else
+ 	{
+ 		b[k]=a[j];
+ 		j++;
+ 	}
+	k++;
+ }
+ if(i>mid)
+ {
+ 	for(m=j;m<=high;m++)
+ 	{
+ 		b[k]=a[m];
+ 		k++;
+ 	}
+ }
+ else
+ {
+ 	for(m=i;m<=mid;m++)
+ 	{
+ 		b[k]=a[m];
+ 		k++;
+ 	}
+ }
+ for(k=low;k<=high;k++)
+ {
+   a[k]=b[k];
+ }
+}
+void mergesort(int a[],int low,int high)
+{
+ int mid;
+ if(low<high)
+ {
+	 mid=(low+high)/2;
+	 mergesort(a,low,mid);
+	 mergesort(a,mid+1,high);
+	 merge(a,low,mid,high);
+ }
+}
