@@ -65,7 +65,7 @@ int main() {
 
         start = clock(); // Start time
 
-        // Perform Whichever sort is required here
+        // Perform Whichever sort is required here (Merge, Selection or Quick)
         mergesort(a,0,n-1);
         selectionSort(arr, n);
         qs(a,0,n-1);
